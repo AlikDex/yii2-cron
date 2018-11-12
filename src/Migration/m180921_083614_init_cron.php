@@ -23,7 +23,7 @@ class m181112_115700_init_cron extends Migration
             'command' => 'text CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL',
             'priority' => 'smallint(5) unsigned NOT NULL DEFAULT 1000',
             'last_execution' => 'timestamp NULL DEFAULT NULL',
-            'duration' => 'double unsigned DEFAULT 0 COMMENT \'ms\'',
+            'duration' => 'double unsigned DEFAULT 0',
             'status' => 'enum(\'\',\'planned\',\'running\',\'completed\',\'failed\',\'aborted\') COLLATE latin1_general_ci NOT NULL DEFAULT \'\'',
             'enabled' => 'tinyint(3) unsigned NOT NULL DEFAULT 1',
             'created_at' => 'timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP',
