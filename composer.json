@@ -13,7 +13,7 @@
     "require": {
         "yiisoft/yii2": "~2.0.15",
         "symfony/process": "*",
-        "dragonmantank/cron-expression": "^2"
+        "dragonmantank/cron-expression": "^1"
     },
     "autoload": {
         "psr-4": {
