@@ -59,12 +59,6 @@ if ($page <= 1) {
                 'enabled',
                 [
                     'attribute' => 'last_execution',
-                    /*'value' => function ($task) {
-                        $timezone = (new \DateTime('now'))->getTimezone();
-                        $last_execution = new \DateTime($task->last_execution, new \DateTimeZone('UTC'));
-                        $last_execution->setTimezone($timezone);
-                        return $last_execution;
-                    },*/
                     'format' => ['datetime', 'php:d M Y H:i:s'],
                 ],
                 [
@@ -131,26 +125,6 @@ $js = <<< 'JAVASCRIPT'
 				if (undefined !== response.error) {
 					throw new Error(response.error.message);
 				}
-
-				/*let action = '';
-				if (clickedButton.hasAttribute('data-action')) {
-					action = clickedButton.getAttribute('data-action');
-				}
-
-				if ('toggle-enabled' === action) {
-					if (true === response.enabled) {
-						imageCard.classList.remove('disabled');
-					} else if (false === response.enabled) {
-						imageCard.classList.add('disabled');
-					}
-				} else if ('delete' === action) {
-					imageCard.remove();
-				} else if ('set-cover' === action) {
-					let coverImage = document.querySelector('#cover-image');
-					let imageUrl = imageCard.querySelector('img.gallery__card__img').getAttribute('src');
-
-					coverImage.setAttribute('src', imageUrl);
-                }*/
 
 				toastr.success(response.message);
 			})
