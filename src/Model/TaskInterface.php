@@ -1,8 +1,6 @@
 <?php
 namespace Adx\Module\CronModule\Model;
 
-use Cron\CronExpression;
-
 /**
  * Interface for task.
  */

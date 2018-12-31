@@ -4,7 +4,6 @@ namespace Adx\Module\CronModule;
 use Yii;
 use yii\i18n\PhpMessageSource;
 use yii\base\Module as BaseModule;
-use yii\web\Application as WebApplication;
 use yii\console\Application as ConsoleApplication;
 
 /**
@@ -43,8 +42,8 @@ class Module extends BaseModule
         }
 
         //translations
-        if (!isset(Yii::$app->get('i18n')->translations['cron*'])) {
-            Yii::$app->get('i18n')->translations['cron*'] = [
+        if (!isset(Yii::$app->get('i18n')->translations['cron'])) {
+            Yii::$app->get('i18n')->translations['cron'] = [
                 'class' => PhpMessageSource::class,
                 'basePath' => __DIR__ . '/Resources/i18n',
                 'sourceLanguage' => 'en-US',

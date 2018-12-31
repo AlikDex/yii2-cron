@@ -2,7 +2,6 @@
 namespace Adx\Module\CronModule\Executor;
 
 use Cron\CronExpression;
-use Adx\Module\CronModule\Model\Task;
 use Adx\Module\CronModule\Model\TaskInterface;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
@@ -78,19 +77,6 @@ class TaskExecutor implements TaskExecutorInterface
                 }
             }
         }
-
-        /*$skippedExecutions = [];
-        while ($execution = $this->taskExecutionRepository->findNextScheduled($runTime, $skippedExecutions)) {
-            $handler = $this->taskHandlerFactory->create($execution->getHandlerClass());
-            if (!$handler instanceof LockingTaskHandlerInterface) {
-                $this->run($handler, $execution);
-                continue;
-            }
-            if ($this->runWithLock($handler, $execution)) {
-                continue;
-            }
-            $skippedExecutions[] = $execution->getUuid();
-        }*/
     }
 
     /**
@@ -169,12 +155,6 @@ class TaskExecutor implements TaskExecutorInterface
     {
         $task->setStatus(TaskInterface::STATUS_COMPLETED);
         $task->result = (string) $result;
-
-        /*
-        $this->eventDispatcher->dispatch(
-            Events::TASK_PASSED,
-            new TaskExecutionEvent($execution->getTask(), $execution)
-        );*/
     }
 
     /**

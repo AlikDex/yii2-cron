@@ -1,10 +1,7 @@
 <?php
 namespace Adx\Module\CronModule\Model;
 
-use Yii;
 use yii\db\ActiveRecord;
-
-use Cron\CronExpression;
 
 /**
  * This is the model class for table "cron_tasks".

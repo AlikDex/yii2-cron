@@ -1,7 +1,6 @@
 <?php
 namespace Adx\Module\CronModule\Command;
 
-use Yii;
 use yii\console\Controller;
 use Adx\Module\CronModule\Model\Task;
 use Adx\Module\CronModule\Executor\TaskExecutor;
