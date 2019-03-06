@@ -3,6 +3,7 @@ namespace Adx\Module\CronModule\Controller;
 
 use Yii;
 
+use yii\web\Request;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -97,9 +98,10 @@ class MainController extends Controller
      */
     public function actionCreate()
     {
+        $request = Yii::$container->get(Request::class);
         $model = new Task;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load($request->post()) && $model->save()) {
             return $this->redirect(['index']);
         } else {
             return $this->render('create', [
@@ -118,9 +120,10 @@ class MainController extends Controller
      */
     public function actionUpdate($id)
     {
+        $request = Yii::$container->get(Request::class);
         $task = $this->findById($id);
 
-        if ($task->load(Yii::$app->request->post()) && $task->save()) {
+        if ($task->load($request->post()) && $task->save()) {
             return $this->redirect(['index']);
         } else {
             return $this->render('update', [
@@ -154,8 +157,10 @@ class MainController extends Controller
      */
     public function actionExecTask()
     {
+        $request = Yii::$container->get(Request::class);
+
         try {
-            $id = (int) Yii::$app->request->post('task_id', 0);
+            $id = (int) $request->post('task_id', 0);
             $task = $this->findById($id);
         } catch (NotFoundHttpException $e) {
             return $this->asJson([
