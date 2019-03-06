@@ -15,10 +15,12 @@ class Module extends BaseModule
      * @inheritdoc
      */
     public $controllerNamespace = 'Adx\Module\CronModule\Controller';
+    
     /**
      * @inheritdoc
      */
     public $defaultRoute = 'main/index';
+    
     /**
      * @inheritdoc
      */
@@ -41,8 +43,8 @@ class Module extends BaseModule
             $this->defaultRoute = 'run/index';
         }
 
-        //translations
-        if (!isset(Yii::$app->get('i18n')->translations['cron'])) {
+        // translations
+        if (Yii::$app->has('i18n') && empty(Yii::$app->get('i18n')->translations['cron'])) {
             Yii::$app->get('i18n')->translations['cron'] = [
                 'class' => PhpMessageSource::class,
                 'basePath' => __DIR__ . '/Resources/i18n',
