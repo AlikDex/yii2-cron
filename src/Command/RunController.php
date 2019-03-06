@@ -16,21 +16,19 @@ class RunController extends Controller
      */
     public function actionIndex()
     {
-    	set_time_limit(600);
+        $tasks = Task::find()
+            ->where(['enabled' => true])
+            ->all();
 
-    	$tasks = Task::find()
-    		->where(['enabled' => true])
-    		->all();
+        if (!empty($tasks)) {
+             $runner = new TaskExecutor;
 
-		if (!empty($tasks)) {
-			$runner = new TaskExecutor;
+            foreach ($tasks as $task) {
+                $runner->addTask($task);
+            }
 
-			foreach ($tasks as $task) {
-				$runner->addTask($task);
-			}
-
-			$runner->runTasks();
-		}
+            $runner->runTasks();
+        }
     }
 
 }

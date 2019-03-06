@@ -139,7 +139,7 @@ class Task extends ActiveRecord implements TaskInterface
      */
     public function getStatus()
     {
-    	return $this->status;
+        return $this->status;
     }
 
     /**
@@ -147,7 +147,7 @@ class Task extends ActiveRecord implements TaskInterface
      */
     public function setStatus($status)
     {
-    	$this->status = $status;
+        $this->status = $status;
     }
 
     /**
