@@ -97,8 +97,8 @@ class TaskExecutor implements TaskExecutorInterface
         try {
             $result = $this->handle($task);
             $this->hasPassed($task, $result);
-        } catch (\ProcessFailedException $e) {
-            $this->hasFailed($task, $exception);
+        } catch (\Exception $e) {
+            $this->hasFailed($task, $e);
         } finally {
             $this->finalize($task, $start);
         }
