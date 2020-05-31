@@ -171,15 +171,13 @@ class MainController extends Controller
             ]);
         }
 
-
         chdir(Yii::getAlias('@root'));
 
         $taskExecutor = new TaskExecutor();
         $taskExecutor->run($task);
 
         return $this->asJson([
-            'message' => 'Success',
-            'result' => $task->result,
+            'message' => \nl2br($task->result)
         ]);
     }
 
