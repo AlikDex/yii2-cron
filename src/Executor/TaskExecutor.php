@@ -126,6 +126,7 @@ class TaskExecutor implements TaskExecutorInterface
         );*/
         try {
             $process = new Process($task->command);
+            $process->setTimeout(3600);
             $process->run();
 
             if (!$process->isSuccessful()) {
