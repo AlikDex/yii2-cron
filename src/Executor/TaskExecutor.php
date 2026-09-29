@@ -125,7 +125,7 @@ class TaskExecutor implements TaskExecutorInterface
             new TaskExecutionEvent($execution->getTask(), $execution)
         );*/
         try {
-            $process = new Process($task->command);
+            $process = Process::fromShellCommandline($task->command);
             $process->setTimeout(3600);
             $process->run();
 
